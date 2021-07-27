@@ -1,0 +1,91 @@
+slam gmapping description
+some tips 
+- moving at a slower speed can also improve the map quality.
+------------------------------------------------------------------------------
+-------------gmapping subscribed topic,published topic description -----------
+------------------------------------------------------------------------------
+
+----------gmapping subscribed topics : tf / scan -----------------------
+
+tf transform necessary to relate frames for laser, base , odometry
+**** gmapping provided tf : map -> odom(the current estimation of the robot's pose
+    within the map frame)
+
+why scan frame parameter not exist? 
+
+    --> laser scan topic name have to named "scan"(you can see in source code) 
+    , which inclue frame id
+    so be able to know where is scan frame because of gmapping subscribed tf topics 
+    (in my opinion)
+
+----------gmapping published topics : map_metadata, map , entropy -------
+
+when is used to map data and map_meta data ? 
+    map data represents a 2-D grid map (used to map_saver node for saving grid file)
+    and, map data included map meta data 
+
+entropy -> a higher value indicates greater uncertainty in pose estimationd
+
+----------------------------------------------------------------------------------
+
+
+
+
+<param name="use_sim_time" value="false"/>
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+ 	
+
+    robot frame. default : "base_link"
+ 	<param name="base_frame" value="base_footprint"/>
+
+    odometry frame default : "odom"
+ 	<param name="odom_frame" value="odom"/>
+
+    map update interval time(sec)
+    <param name="map_update_interval" value="5.0"/>
+
+    laser sensing max range - > modify value based on sensor type
+    maxUrange < 실제 센서의 최대 범위 
+    maximum range of the laser scanner that is used for map building (default: same as maxRange)
+    A beam is cropped to this value. 
+    <param name="maxUrange" value="16.0"/>
+
+    <param name="sigma" value="0.05"/> standard deviation for the scan matching process (cell)
+    <param name="kernelSize" value="1"/>
+    <param name="lstep" value="0.05"/>
+    <param name="astep" value="0.05"/>
+    <param name="iterations" value="5"/>
+    <param name="lsigma" value="0.075"/>
+    <param name="ogain" value="3.0"/>
+    <param name="lskip" value="0"/>
+
+    all standard deviations of a gaussian noise model
+    <param name="srr" value="0.1"/> linear noise component (x and y)
+    <param name="srt" value="0.2"/> linear -> angular noise component
+    <param name="str" value="0.1"/> angular -> linear noise component
+    <param name="stt" value="0.2"/> angular noise component (theta)
+
+
+    <param name="linearUpdate" value="1.0"/> the robot only processes new measurements if the robot has moved at least this meters
+    <param name="angularUpdate" value="0.5"/>  the robot only processes new measurements if the robot has turned at least this many rads
+    <param name="temporalUpdate" value="3.0"/>
+    <param name="resampleThreshold" value="0.5"/> Higher means more frequent resampling.
+
+    number of particles
+    <param name="particles" value="30"/>
+
+    Initial map dimensions
+    <param name="xmin" value="-50.0"/> minimum x position in the map [m]
+    <param name="ymin" value="-50.0"/> minimum y position in the map [m]
+    <param name="xmax" value="50.0"/>  maximum x position in the map [m]
+    <param name="ymax" value="50.0"/>  maximum y position in the map [m]
+    map resolution : distance(m) / cell.
+    in source code, map resolution will be modified by this parameter
+    <param name="delta" value="0.05"/>
+
+    Likelihood sampling (used in scan matching)
+    <param name="llsamplerange" value="0.01"/>
+    <param name="llsamplestep" value="0.01"/>
+    <param name="lasamplerange" value="0.005"/>
+    <param name="lasamplestep" value="0.005"/>
+    </node>

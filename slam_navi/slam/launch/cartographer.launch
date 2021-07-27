@@ -1,0 +1,38 @@
+<launch>
+  <!-- Arguments -->
+  <include file="$(find slam)/launch/robot_bringup.launch"/>
+
+  <arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
+  <arg name="set_base_frame" default="base_footprint"/>
+  <arg name="set_odom_frame" default="odom"/>
+  <arg name="set_map_frame"  default="map"/>
+
+
+
+
+    <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+          -configuration_directory
+              $(find slam)/config
+          -configuration_basename cartographer.lua" output="screen">
+<!--               <remap from="/imu" to="/flat_imu"/> -->
+    </node>
+
+    <!-- Additional node which converts Cartographer map into ROS occupancy grid map. Not used and can be skipped in this case -->
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+
+    <!-- baseController control -->
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"  output="screen">
+    <param name="speed" value="0.1"/>
+    <param name ="turn" value="0.3"/>
+    </node>
+
+<!-- <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 0 0 0 0 0 1 map odom 100" /> -->
+    <!--  <node pkg="slam" type="odom_node" name="odom_node" /> -->
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find slam)/rviz/gmapping.rviz" />
+
+</launch>

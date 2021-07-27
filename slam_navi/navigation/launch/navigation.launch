@@ -1,0 +1,38 @@
+<launch>
+  <!-- Arguments -->
+  <include file="$(find slam)/launch/robot_bringup.launch"/>
+
+  <arg name="map_file" default="$(find navigation)/maps/map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- AMCL -->
+  <include file="$(find navigation)/launch/amcl.launch"/>
+
+  <!-- move_base -->
+  <include file="$(find navigation)/launch/move_base.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+<!--   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+    <rosparam command="load" file="$(find robot_localization)/params/bada_ekf.yaml" />
+ -->
+    <!--  Placeholder for output topic remapping
+    <remap from="accel/filtered" to=""/>
+    -->
+<!--     <remap from="odometry/filtered" to="bada/filtered_odom"/>
+
+  </node> -->
+
+
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find navigation)/rviz/turtlebot3_navigation.rviz" />
+
+</launch>

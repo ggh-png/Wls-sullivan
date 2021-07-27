@@ -1,0 +1,36 @@
+<launch>
+
+	<arg name ="motor_port" default="/dev/ttyACM0"/>
+	<arg name ="imu_port" default="/dev/ttyUSB1"/>
+     <arg name ="lidar_port" default="/dev/ttyUSB0"/>
+
+	<!--rosserial node for motor on Arduino-->  
+  <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+     <param name="port" value="$(arg motor_port)"/>
+    <param name="baud" value="115200"/>
+  </node>
+     <!-- motor node -->
+  <node pkg="motor_ctrl" type="motor_ctrl_node" name="motor_ctrl_node"/>
+
+  <node pkg="hls_lfcd_lds_driver" type="hlds_laser_publisher" name="hlds_laser_publisher" output="screen">
+     <param name="port" value="$(arg lidar_port)"/>
+     <param name="frame_id" value="lidar_link"/>
+  </node>
+
+  <node pkg="slam" type="odom_node" name="odom_node" />
+
+
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/usb_cam/image_raw"/>
+    <param name="autosize" value="true" />
+  </node>
+
+</launch>

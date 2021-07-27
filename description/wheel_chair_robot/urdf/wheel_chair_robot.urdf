@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="wheel_chair_robot">
+ 
+ <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0" rpy="0 0 -1.57"/>
+  </joint>
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000183927413758976 0.122740439529099 -0.0288849781882509"
+        rpy="0 0 0" />
+      <mass
+        value="0.471290238762329" />
+      <inertia
+        ixx="0.000718160491232769"
+        ixy="6.15110268509589E-10"
+        ixz="-1.16572820178585E-08"
+        iyy="0.00133061138183249"
+        iyz="1.38556065851486E-07"
+        izz="0.000639912786707179" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="imu_base">
+    <inertial>
+      <origin
+        xyz="-9.3585E-18 0 0.000865"
+        rpy="0 0 0" />
+      <mass
+        value="0.00066052" />
+      <inertia
+        ixx="2.8402E-08"
+        ixy="2.7263E-24"
+        ixz="5.1782E-25"
+        iyy="1.6689E-08"
+        iyz="-1.0538E-25"
+        izz="4.4761E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/imu_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/imu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.14042 0.14476"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="-8.6736E-19 -1.3878E-17 0.016956"
+        rpy="0 0 0" />
+      <mass
+        value="0.090366" />
+      <inertia
+        ixx="2.9262E-05"
+        ixy="-1.8079E-37"
+        ixz="-2.7102E-21"
+        iyy="2.9262E-05"
+        iyz="3.4542E-21"
+        izz="4.6984E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.002 0.079323 0.24026"
+      rpy="0 3.14 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="caster_link">
+    <inertial>
+      <origin
+        xyz="0 0 -9.22925050845154E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00573786372737865" />
+      <inertia
+        ixx="3.01346626020544E-07"
+        ixy="-1.32348898008484E-23"
+        ixz="-4.49868165120885E-24"
+        iyy="3.01346626020544E-07"
+        iyz="-1.35347653668217E-23"
+        izz="4.48449911942938E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/caster_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/caster_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.082473 0.01224"
+      rpy="1.5708 -0.16099 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wheel_R_link">
+    <inertial>
+      <origin
+        xyz="-0.016617 -8.7964E-12 -7.3698E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.053158" />
+      <inertia
+        ixx="4.0958E-05"
+        ixy="3.054E-15"
+        ixz="2.443E-10"
+        iyy="2.3293E-05"
+        iyz="5.1359E-16"
+        izz="2.3293E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/wheel_R_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/wheel_R_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_R_joint"
+    type="continuous">
+    <origin
+      xyz="0.0669 0 0.033497"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_R_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="wheel_L_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/wheel_L_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chair_robot/meshes/wheel_L_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_L_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0669000000000001 0 0.0334966062413412"
+      rpy="0.57593551149876 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_L_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>

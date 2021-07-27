@@ -1,0 +1,49 @@
+<launch>
+  <!-- Arguments -->
+  <include file="$(find slam)/launch/robot_bringup.launch"/>
+
+  <arg name="map_file" default="$(find navigation)/maps/map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+
+
+  <!-- Map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find navigation)/maps/map.yaml" output="screen">
+                <param name="frame_id" value="map"/>
+  </node>
+
+  <!-- AMCL -->
+  <!-- <include file="$(find navigation)/launch/amcl.launch"/> -->
+
+  <!-- move_base -->
+  <include file="$(find navigation)/launch/move_base_teb.launch">
+  </include>
+  <include file="$(find navigation)/launch/amcl.launch"/>
+
+<!--   <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam file="$(find navigation)/param/amcl_params.yaml" command="load" />
+
+    <param name="initial_pose_x"            value="0"/>
+    <param name="initial_pose_y"            value="0"/>
+    <param name="initial_pose_a"            value="0"/>
+  </node>
+ -->
+<!-- 
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation)/rviz/rviz_navigation.rviz"/>
+ -->
+
+<!--   <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find navigation)/rviz/turtlebot3_navigation.rviz" />
+ -->
+
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find navigation)/rviz/rviz_navigation.rviz" />
+
+</launch>
