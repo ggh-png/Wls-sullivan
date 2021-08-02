@@ -1,14 +1,14 @@
 
 #include <TimerFive.h>
 
-#define rotation 3960
+#define rotation 1393.6
 
 //for Encoder pin define
-#define ENC1_CHA    18  //INT.5
-#define ENC1_CHB    19
+#define ENC1_CHA    2  //INT.5
+#define ENC1_CHB    3
 
-#define ENC2_CHA    2  //INT.4
-#define ENC2_CHB    3
+#define ENC2_CHA    18  //INT.4
+#define ENC2_CHB    19
 
 //for Motor I/O pin define
 #define M1_I1       4 //dir 
@@ -18,13 +18,13 @@
 #define M2_PWM      7
 
 
-#define Kp1 5.// P-gain 
+#define Kp1 3.// P-gain 
 #define Ki1 .5// i-gain  
-#define Kd1 3.0// d-gain 
+#define Kd1 .03// d-gain 
 
-#define Kp2 5.// P-gain 
-#define Ki2 .5// i-gain  
-#define Kd2 3.// d-gain 
+#define Kp2 3.0// P-gain 
+#define Ki2 0.5// i-gain  
+#define Kd2 .03// d-gain 
 
 //Variables
 //Encoder value
@@ -40,7 +40,7 @@ float   m2_speed = 0;
 float   m2_turn = 0;
 
 //for motor control variable
-//motor1
+//motor1speed_2
 float   m1_ref_spd = 0;
 float   m1_err_spd = 0;
 float   m1_err_spd_k_1 = 0;
@@ -138,10 +138,11 @@ void setting(){
   attachInterrupt(digitalPinToInterrupt(ENC2_CHA), Enc2chA_ISR, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENC1_CHB), Enc1chB_ISR, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ENC2_CHB), Enc2chB_ISR, CHANGE);  
-  Serial.begin(57600);
+  Serial.begin(115200);
   Timer5.initialize(10000); //10msec,
   Timer5.attachInterrupt(T5ISR); //T5ISR
   // ROS 통신 
+  nh.getHardware()->setBaud(115200);
   nh.initNode();
   nh.subscribe(sub);
   nh.advertise(pub);

@@ -1,13 +1,13 @@
 #include <TimerFive.h>
 
-#define rotation 3960
+#define rotation 1393.6
 
 //for Encoder pin define
-#define ENC1_CHA    18  //INT.5
-#define ENC1_CHB    19
+#define ENC1_CHA    2  //INT.5
+#define ENC1_CHB    3
 
-#define ENC2_CHA    2  //INT.4
-#define ENC2_CHB    3
+#define ENC2_CHA    18  //INT.4
+#define ENC2_CHB    19
 
 //for Motor I/O pin define
 #define M1_I1       4 //dir 
@@ -17,13 +17,13 @@
 #define M2_PWM      7
 
 
-#define Kp1 5.// P-gain 
+#define Kp1 3.// P-gain 
 #define Ki1 .5// i-gain  
-#define Kd1 3.0// d-gain 
+#define Kd1 .03// d-gain 
 
-#define Kp2 5.// P-gain 
+#define Kp2 3.// P-gain 
 #define Ki2 .5// i-gain  
-#define Kd2 3.// d-gain 
+#define Kd2 .03// d-gain 
 
 //Variables
 //Encoder value
