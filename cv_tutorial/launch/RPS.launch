@@ -1,0 +1,11 @@
+<launch>
+<!-- <include file="$(find realsense2_camera)/launch/rs_camera.launch"> -->
+  <!-- </include> -->
+  <node pkg="cv_tutorial" type="RockPaperScissorsClass.py" name="RPS_node"/>
+  <node pkg="cv_tutorial" type="image_out.py" name="image_out_node" cwd = "node"/>
+  <node pkg="image_view" type="image_view" name="Viewer">
+    <remap from="image" to="/image_out_node/result" />
+	<param name="_image_transport" value="theora"/>  
+	<param name="autosize" value="true"/>  
+  </node>
+</launch>

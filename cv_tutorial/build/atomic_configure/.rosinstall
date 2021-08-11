@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pavel/ros_workspace/cv_tutorial/build/devel/setup.sh
