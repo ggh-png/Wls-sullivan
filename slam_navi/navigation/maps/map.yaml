@@ -1,4 +1,4 @@
-image: /home/ggh/robot_ws/src/WS/slam_navi/navigation/maps/map.pgm
+image: /home/ggh/map.pgm
 resolution: 0.050000
 origin: [-10.000000, -10.000000, 0.000000]
 negate: 0

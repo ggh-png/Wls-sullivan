@@ -28,17 +28,11 @@
     <param name="initial_pose_a"            value="0"/>
   </node>
  -->
-<!-- 
-
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation)/rviz/rviz_navigation.rviz"/>
- -->
-
-<!--   <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find navigation)/rviz/turtlebot3_navigation.rviz" />
- -->
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain"
+      name="laser_filters">
+    <rosparam command="load" file="$(find navigation)/config/MR_2_scan_filter.yaml" />
+    <remap from="scan" to="lidar_link" />
+  </node>
 
   <node
     name="rviz"
