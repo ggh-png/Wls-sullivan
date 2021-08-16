@@ -12,7 +12,6 @@ from geometry_msgs.msg import Twist
 import sys, select, termios, tty
 
 msg = """
-note : modified publisher topic message : motorControl/cmd_vel 
 Reading from the keyboard  and Publishing to Twist!
 ---------------------------
 Moving around:

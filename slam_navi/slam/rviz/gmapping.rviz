@@ -85,31 +85,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        caster_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        imu_base:
+        camera_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         lidar_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        usb_cam:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        wheel_L_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_R_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -135,9 +116,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 9349
+      Max Intensity: 126
       Min Color: 0; 0; 0
-      Min Intensity: 164
+      Min Intensity: 3
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -215,8 +196,8 @@ Visualization Manager:
         Shaft Length: 1
         Shaft Radius: 0.05000000074505806
         Value: Arrow
-      Topic: /bada/filtered_odom
-      Unreliable: false
+      Topic: /MR_2/odom
+      Unreliable: true
       Value: true
     - Class: rviz/Image
       Enabled: true
@@ -315,7 +296,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -1.754998803138733
+      Angle: -2.4400007724761963
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -325,11 +306,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 151.7863006591797
+      Scale: 189.8856658935547
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 0.7032021880149841
-      Y: -0.41137397289276123
+      X: 0.21421991288661957
+      Y: 0.3686267137527466
     Saved: ~
 Window Geometry:
   Camera:

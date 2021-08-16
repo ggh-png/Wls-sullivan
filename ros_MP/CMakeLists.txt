@@ -162,7 +162,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 
 
-catkin_install_python(PROGRAMS scripts/pub.py scripts/sub.py nodes/py2-RPS/RockPaperScissorsClass.py
+catkin_install_python(PROGRAMS  nodes/py2-RPS/RockPaperScissorsClass.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

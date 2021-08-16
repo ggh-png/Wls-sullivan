@@ -4,8 +4,8 @@
 #include "robot_msgs/Motor.h"
 #include "geometry_msgs/Twist.h"
 
-#define WHEEL_RADIUS 0.0335
-#define ROBOT_RADIUS 0.0906
+#define WHEEL_RADIUS 0.0575
+#define ROBOT_RADIUS 0.2
 #define RPM_to_RADIAN 3.141592654*2/60
 #define RADIAN_to_RPM 60/(3.141592654*2)
 #define PI 3.141592654
@@ -20,8 +20,8 @@ int main(int argc,char**argv){
 	ros::NodeHandle nh;
 	ros::Subscriber sub1 = nh.subscribe("/Motor/speed",1,CallBack_1);
 	ros::Subscriber sub2 = nh.subscribe("/cmd_vel",1,CallBack_2);
-	ros::Publisher speed1 = nh.advertise<geometry_msgs::Twist>("/Wheel_chair_robot/cmd_vel",1);
-	ros::Publisher speed2 = nh.advertise<robot_msgs::Motor>("/Wheel_chair_robot/speed_set",1);
+	ros::Publisher speed1 = nh.advertise<geometry_msgs::Twist>("/MR_2/cmd_vel",1);
+	ros::Publisher speed2 = nh.advertise<robot_msgs::Motor>("/MR_2/speed_set",1);
 	pub1 = &speed1;
 	pub2 = &speed2;
 	while(ros::ok()){

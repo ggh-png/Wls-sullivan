@@ -30,7 +30,7 @@ class RockPaperScissors:
         self.end_frame = 0
 
         self.img_sub = rospy.Subscriber("/usb_cam/image_raw", Image, self.img_to_cv2, queue_size = 1)
-        self.res_pub = rospy.Publisher("/RPS_node/result",  String, queue_size = 1)
+        self.res_pub = rospy.Publisher("/MR_2/state",  String, queue_size = 1)
         self.res_pub.publish("playing a b")
         
 

@@ -28,8 +28,8 @@ void twistCB(const geometry_msgs::Twist &msg){
 int main(int argc, char **argv){
     ros::init(argc, argv, "odom_node");
     ros::NodeHandle n;
-    ros::Subscriber sub = n.subscribe("Wheel_chair_robot/cmd_vel", 10, twistCB);
-    ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("wheel_chair_robot/odom", 10);
+    ros::Subscriber sub = n.subscribe("MR_2/cmd_vel", 10, twistCB);
+    ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("MR_2/odom", 10);
     tf2_ros::TransformBroadcaster br;
 
     ros::Time current_time, last_time;

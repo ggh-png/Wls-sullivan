@@ -10,8 +10,8 @@
 #define ENC2_CHB    19
 
 //for Motor I/O pin define
-#define M1_I1       4 //dir 
-#define M1_PWM      5
+#define M1_I1       8 //dir 
+#define M1_PWM      9
 
 #define M2_I1       6 //dir 
 #define M2_PWM      7
@@ -107,7 +107,7 @@ ros::NodeHandle  nh;
 robot_msgs::Motor sp_msg;
 ros::Publisher pub("/Motor/speed", &sp_msg);
 
-ros::Subscriber<robot_msgs::Motor> sub("/Wheel_chair_robot/speed_set", &messageCb );
+ros::Subscriber<robot_msgs::Motor> sub("/MR_2/speed_set", &messageCb );
 
 float speed_1 = 0;
 float speed_2 = 0;
@@ -229,8 +229,8 @@ void M2doMotor(bool dir, long vel){
 void T5ISR(){
   t5_flag = true; // dir 토글
   //RPM();
-  M2vel_PID(speed_1);
-  M1vel_PID(speed_2);   
+  M2vel_PID(speed_2);
+  M1vel_PID(-speed_1);   
 }
 
 
