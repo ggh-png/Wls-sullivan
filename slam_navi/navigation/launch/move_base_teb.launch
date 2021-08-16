@@ -2,7 +2,7 @@
   <!-- Arguments -->
 
   <arg name="cmd_vel_topic" default="/cmd_vel" />
-  <arg name="odom_topic" default="wheel_chair_robot/odom" />
+  <arg name="odom_topic" default="MR_2/odom" />
   <arg name="move_forward_only" default="true"/>
 
   <!-- move_base -->

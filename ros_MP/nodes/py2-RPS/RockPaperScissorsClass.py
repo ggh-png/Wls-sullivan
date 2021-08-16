@@ -30,7 +30,7 @@ class RockPaperScissors:
         self.end_frame = 0
 
         self.img_sub = rospy.Subscriber("/usb_cam/image_raw", Image, self.img_to_cv2, queue_size = 1)
-        self.res_pub = rospy.Publisher("/MR_2/state",  String, queue_size = 1)
+        self.res_pub = rospy.Publisher("/MR_2/MP_state",  String, queue_size = 1)
         self.res_pub.publish("playing a b")
         
 
@@ -77,7 +77,7 @@ class RockPaperScissors:
             if(self.end_flag):
                 self.show_res()
                 return
-            if(self.fps_reduce == 50):
+            if(self.fps_reduce == 3):
                 kp, box = self.detector(self.cv2_frame[:,:,::-1])
                 player_move = self.estimator.predict(self.transform_frame(kp))
                 self.end_frame = self.cv2_frame

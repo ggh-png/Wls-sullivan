@@ -28,11 +28,11 @@
     <param name="initial_pose_a"            value="0"/>
   </node>
  -->
-  <node pkg="laser_filters" type="scan_to_scan_filter_chain"
+<!--   <node pkg="laser_filters" type="scan_to_scan_filter_chain"
       name="laser_filters">
     <rosparam command="load" file="$(find navigation)/config/MR_2_scan_filter.yaml" />
     <remap from="scan" to="lidar_link" />
-  </node>
+  </node> -->
 
   <node
     name="rviz"

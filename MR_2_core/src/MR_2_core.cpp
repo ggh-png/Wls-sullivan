@@ -1,9 +1,15 @@
 #include "ros/ros.h"                          // ROS Default Header File
+
 #include <actionlib/client/simple_action_client.h>
+#include <move_base_msgs/MoveBaseAction.h>
 #include <tf/transform_broadcaster.h>
+
+typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
+
 #include <sstream>
 #include <iostream>
-
+#include <string> 
+using namespace std;
 
 #include <nav_msgs/Odometry.h>
 #include <std_msgs/Float64.h>
@@ -13,40 +19,106 @@
 
 
 
-double wayPoint[3][3] = { 
-  {0, -2, 1}, //way1 
-  {1, -2.5, 1}, //way2
-  {0, 0, 1} //way3
-};  
+
+// ---
+void go_waypoint(double wayPoint[]);
+
 
 //cb 함수들 ----------------------------------------------------------------------------------------------
 
+
 void sub_waypoint_callback(const std_msgs::Int16::ConstPtr& msg)
 {
-  ROS_INFO("waypoint msg = %d", msg->Int16);   // Prints the 'stamp.sec' message
+   ROS_INFO("waypoint msg = %d", msg->data);   // Prints the 'stamp.sec' message
 }
 
-void sub_state_callback(const std_msgs::String::ConstPtr& msg){
-  ROS_INFO("ros_mp msg = %d", msg->String);
+
+
+int count_1;
+int count_2;
+int count_3;
+
+bool MP_start_but = 0;
+
+
+void sub_MP_state_callback(const std_msgs::String::ConstPtr& msg){
+  
+
+  string MP_state = msg->data.c_str();
+  string state_1 = "hungry";
+  string state_2 = "tirsty";
+  string state_3 = "toilet";
+
+  zing_function(0)
+
+  if(MP_start_but == 1){//bun one crick
+     // zziiiiiiing!!!
+    if(state_1 == msg->data.c_str()){
+      count_1 += 1;
+      count_2 = 0;
+      count_3 = 0;
+      ROS_INFO("stat_1 stack %d", count_1);
+      if(count_1 == 3){
+        ROS_INFO("go waypoint_1");
+        zing_function(1) //zing X 
+        double arr[] = {0,0, 1};
+        go_waypoint(arr);
+        count_1 = 0;
+        count_2 = 0;
+        count_3 = 0;
+        MP_start_but = 0;
+      }
+    }
+
+    if(state_2 == msg->data.c_str()){
+      count_2 += 1;
+      count_1 = 0;
+      count_3 = 0;
+      ROS_INFO("stat_2 stack %d", count_2);
+      if(count_2 == 3){
+        ROS_INFO("go waypoint_2");
+        double arr[] = {4, 2, 1};
+        go_waypoint(arr);
+        count_1 = 0;
+        count_2 = 0;
+        count_3 = 0;
+      }
+    }
+
+    if(state_3 == msg->data.c_str()){
+      count_3 += 1;
+      count_1 = 0;
+      count_2 = 0;
+      ROS_INFO("stat_3 stack %d", count_3);
+      if(count_3 == 3){
+        ROS_INFO("go waypoint_3");
+        double arr[] = {5, 2, 1};
+        go_waypoint(arr);
+        count_1 = 0;
+        count_2 = 0;
+        count_3 = 0;
+      }
+    }
+  }
 }
+
+
+
 
 void sub_swich_callback(const std_msgs::Bool::ConstPtr& msgs){
-  ROS_INFO("arduino_swich msg = %d", msgs->Bool)
+  ROS_INFO("arduino_swich msg = %d", msgs->data);
+  MP_start_but +=1;
 }
 
-void sub_odometry_callback(const nav_msgs::Odometry &msg);
- 
+
  //실 사용 함수들 -----------------------------------------------------------------------------------------
 
-void bada_go_destination_blocking(double duration, double x, double y, double orien_z, double orien_w);
 
 
 
+void go_waypoint(double wayPoint[]){
 
-
-
-void navigation(){
-
+	MoveBaseClient ac("move_base", true);
   while(!ac.waitForServer(ros::Duration(5.0))){
     ROS_INFO("Waiting for the move_base action server");
   }
@@ -57,9 +129,9 @@ void navigation(){
   goal.target_pose.header.stamp = ros::Time::now();
 
     try{
-        goal.target_pose.pose.position.x = wayPoint[i][0];
-        goal.target_pose.pose.position.y = wayPoint[i][1];
-        goal.target_pose.pose.orientation.w = wayPoint[i][2];
+        goal.target_pose.pose.position.x = wayPoint[0];
+        goal.target_pose.pose.position.y = wayPoint[1];
+        goal.target_pose.pose.orientation.w = wayPoint[2];
        }
     catch(int e){
 
@@ -67,10 +139,23 @@ void navigation(){
       goal.target_pose.pose.position.y = 1.0;
       goal.target_pose.pose.orientation.w = 1.0;
     }
-    ROS_INFO("Sending move base goal");
+    ROS_INFO("start");
     ac.sendGoal(goal);
-    ac.waitForResult();
-  }
+    zing_function(2); // zing zing 
+    ac.waitForResult(ros::Duration( 80.0 ));
+    zing_function(3) // zing zing zing 
+    if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+      ROS_INFO("end");
+    else
+      ROS_INFO("fail");
+}
+
+
+
+void zing_function(int num){
+  pub ziiiiiiiing(num);//for arduino code 
+}
+
 
 
 
@@ -81,17 +166,16 @@ int main(int argc, char **argv)                         // Node Main Function
   ros::NodeHandle nh;                                   // Node handle declaration for communication with ROS system
 
 
-  ros::Subscriber sub_waypoint  = nh.subscribe("/MR_2/waypoint", 1, sub_waypoint_callback); //TODO: FIX CALLBACK FUNCTION
-  ros::Subscriber sub_state  = nh.subscribe("/MR_2/state", 1, sub_state_callback); //TODO: FIX CALLBACK FUNCTION  
-  ros::Subscriber sub_arduino_swich  = nh.subscribe("/MR_2/arduino/swich", 1, sub_swich_callback); //TODO: FIX CALLBACK FUNCTION
-  ros::Subscriber sub_odom  = nh.subscribe("/MR_2/odom", 1, sub_odometry_callback); //TODO: FIX CALLBACK FUNCTION
-    
-  actionClient    = new MoveBaseClient("move_base", true); //move_base client 선언  
+  ros::Subscriber sub_waypoint  = nh.subscribe("/MR_2/waypoint", 1, sub_waypoint_callback); 
+  ros::Subscriber sub_state  = nh.subscribe("/MR_2/MP_state", 1, sub_MP_state_callback); 
+  ros::Subscriber sub_arduino_swich  = nh.subscribe("/MR_2/arduino/swich", 1, sub_swich_callback); 
 
 
-  ros::Subscriber ros_tutorial_sub = nh.subscribe("waypoint", 100, msgCallback);
-
-  ros::spin();
-
+  while (ros::ok())
+  {
+    ros::spinOnce();/* code */
+  }
   return 0;
 }
+
+

@@ -1,0 +1,12 @@
+<launch>
+  <!-- move_base -->
+  <include file="$(find navigation)/launch/teb_navigation.launch"/>
+  <!-- <node pkg="MR_2_core" type="MR_2_core_node" name="MR_2_core_node"/> -->
+
+
+
+  <node pkg="ros_MP" type="RockPaperScissorsClass.py" name="RockPaperScissorsClass"  output="screen">
+  </node>
+
+
+</launch>
