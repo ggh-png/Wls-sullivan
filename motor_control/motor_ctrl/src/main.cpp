@@ -57,12 +57,12 @@ void CallBack_2(const geometry_msgs::Twist &msg){
 	robot_msgs::Motor motor_msgs;
 
 	double linear_left_RPM,linear_right_RPM;
-	linear_left_RPM =linear_right_RPM= msg.linear.x/(2*PI*WHEEL_RADIUS)*60;
-
+	linear_right_RPM= msg.linear.x/(2*PI*WHEEL_RADIUS)*60;
+	linear_left_RPM = -linear_right_RPM;
 	double angular_left_RPM, angular_right_RPM;
 	angular_right_RPM = msg.angular.z * (ROBOT_RADIUS/WHEEL_RADIUS) * 60 / 2 / PI;
 	
-	angular_left_RPM = -angular_right_RPM;
+	angular_left_RPM = angular_right_RPM;
 
 	double left_target_RPM = linear_left_RPM + angular_left_RPM;
 	double right_target_RPM = linear_right_RPM + angular_right_RPM;

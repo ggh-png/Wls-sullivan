@@ -202,7 +202,7 @@ void RPM(){
     m2_turn= (float)e2cnt_k/3960;
     e2cnt_k_1 = e2cnt_k;//엔코더 초기화
     
-    sp_msg.right_motor.data = m1_speed;
+    sp_msg.right_motor.data = -m1_speed;
     sp_msg.left_motor.data = m2_speed;
     pub.publish(&sp_msg);    
   }
@@ -229,8 +229,8 @@ void M2doMotor(bool dir, long vel){
 void T5ISR(){
   t5_flag = true; // dir 토글
   //RPM();
-  M2vel_PID(speed_2);
-  M1vel_PID(-speed_1);   
+  M2vel_PID(speed_1);
+  M1vel_PID(speed_2);   
 }
 
 

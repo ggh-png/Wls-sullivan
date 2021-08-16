@@ -21,8 +21,8 @@ int main(int argc, char **argv){
   	ros::NodeHandle nh;
 
 //  	ros::Subscriber temp_vel_sub = nh.subscribe("/donationTF/cmd",10,tfVelCallback);
-  	ros::Publisher temp_vel_pub = nh.advertise <geometry_msgs::Twist>("Wheel_chair_robot/odom_vel",10);
-    ros::Subscriber sub = nh.subscribe("Wheel_chair_robot/cmd_vel", 10, updateTargetVel);
+  	ros::Publisher temp_vel_pub = nh.advertise <geometry_msgs::Twist>("MR_2/odom_vel",10);
+    ros::Subscriber sub = nh.subscribe("MR_2/cmd_vel", 10, updateTargetVel);
   	geometry_msgs::Twist temp_odom;
   	ros::Rate loop_rate(Control_cycle);
 
