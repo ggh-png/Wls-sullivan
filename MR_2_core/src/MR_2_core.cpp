@@ -27,13 +27,6 @@ void go_waypoint(double wayPoint[]);
 //cb 함수들 ----------------------------------------------------------------------------------------------
 
 
-void sub_waypoint_callback(const std_msgs::Int16::ConstPtr& msg)
-{
-   ROS_INFO("waypoint msg = %d", msg->data);   // Prints the 'stamp.sec' message
-}
-
-
-
 int count_1;
 int count_2;
 int count_3;
@@ -165,6 +158,7 @@ int main(int argc, char **argv)                         // Node Main Function
   ROS_INFO("MR_2_core_node ON");
   ros::NodeHandle nh;                                   // Node handle declaration for communication with ROS system
 
+  ros::Publisher pub_zing = nh.advertise<std_msgs::Int16>("/MR_2/arduino/zing",1);
 
   ros::Subscriber sub_waypoint  = nh.subscribe("/MR_2/waypoint", 1, sub_waypoint_callback); 
   ros::Subscriber sub_state  = nh.subscribe("/MR_2/MP_state", 1, sub_MP_state_callback); 
