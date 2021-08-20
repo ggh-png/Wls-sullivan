@@ -1,8 +1,9 @@
 <launch>
 
-  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter" output="screen">
-    <rosparam command="load" file="$(find slam)/config/scan_data_filter.yaml" />
-  </node>
+<node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
+      <!-- <remap from="scan" to="scan" /> -->
+      <rosparam command="load" file="$(find navigation)/config/MR_2_scan_filter.yaml" />
+</node>
 
     <!-- Arguments -->
   <arg name="scan_topic"     default="scan_filtered"/>
@@ -23,9 +24,9 @@
     <param name="transform_tolerance"       value="0.5"/>
     <param name="recovery_alpha_slow"       value="0.00"/>
     <param name="recovery_alpha_fast"       value="0.00"/>
-    <param name="initial_pose_x"            value="$(arg initial_pose_x)"/>
+<!--     <param name="initial_pose_x"            value="$(arg initial_pose_x)"/>
     <param name="initial_pose_y"            value="$(arg initial_pose_y)"/>
-    <param name="initial_pose_a"            value="$(arg initial_pose_a)"/>
+    <param name="initial_pose_a"            value="$(arg initial_pose_a)"/> -->
     <param name="gui_publish_rate"          value="50.0"/>
 
     <remap from="scan"                      to="$(arg scan_topic)"/>
