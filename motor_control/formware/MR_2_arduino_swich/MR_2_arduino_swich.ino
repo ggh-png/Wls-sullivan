@@ -68,6 +68,8 @@ void setup()
   
   //Enable the pullup resistor on the button
   digitalWrite(button_pin, HIGH);
+  attachInterrupt(digitalPinToInterrupt(button_pin), but_ISR, LOW);
+
   
   //The button is a normally button
   last_reading = ! digitalRead(button_pin);
@@ -76,9 +78,9 @@ void setup()
 int state=0;
 void loop()
 {
-  
+
   bool reading = ! digitalRead(button_pin);
-  
+
   if (last_reading!= reading){
       last_debounce_time = millis();
       published = false;
@@ -86,7 +88,7 @@ void loop()
   
   //if the button value has not changed for the debounce delay, we know its stable
   if ( !published && (millis() - last_debounce_time)  > debounce_delay) {
-    if(reading == 1){
+    
     state++;
     pushed_msg.data = state;
     pub_button.publish(&pushed_msg);
@@ -95,10 +97,15 @@ void loop()
       state = 0;
       pushed_msg.data = state;
       pub_button.publish(&pushed_msg);
-    }
   }
   }
-  last_reading = reading;
-  
+  last_reading = reading;  
   nh.spinOnce();
+}
+
+
+
+void but_ISR(){
+
+
 }
