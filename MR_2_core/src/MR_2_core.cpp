@@ -76,7 +76,16 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msgs){
 void sub_swich_callback(const std_msgs::Int16::ConstPtr& msgs){
 
   ROS_INFO(" %d: arduino_swich msg = 1",MP_start_but);
-  MP_start_but = 1;
+  MP_start_but = msgs->data;
+  if(MP_start_but == 4){
+    TP_msg.data = 5;
+    pub_TP_state.publish(TP_msg);
+    pushed_msg.data = 4;
+    pub_zing.publish(pushed_msg);
+    go_waypoint(waypoint[4]);// 긴급상황 
+    
+
+  }
 }
 
 

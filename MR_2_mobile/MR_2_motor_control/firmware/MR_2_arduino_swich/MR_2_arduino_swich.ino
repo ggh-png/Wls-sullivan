@@ -52,6 +52,33 @@ void messageCb( const std_msgs::Int16& msg){
     digitalWrite(3, LOW);   // zing zing
     delay(500);
   }
+  
+    if(zing_state==4){
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
+  }
 }
 
 ros::Subscriber<std_msgs::Int16> sub_MP("/MR_2/arduino/zing", &messageCb);
