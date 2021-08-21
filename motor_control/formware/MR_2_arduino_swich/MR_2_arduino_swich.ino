@@ -47,6 +47,10 @@ void messageCb( const std_msgs::Int16& msg){
     delay(500);
     digitalWrite(3, LOW);   // zing zing
     delay(500);
+    digitalWrite(3, HIGH);   // zing zing
+    delay(500);
+    digitalWrite(3, LOW);   // zing zing
+    delay(500);
   }
 }
 
