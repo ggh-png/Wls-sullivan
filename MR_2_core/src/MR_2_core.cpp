@@ -1,32 +1,44 @@
 #include "ros/ros.h"                          // ROS Default Header File
-
 #include <actionlib/client/simple_action_client.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <tf/transform_broadcaster.h>
 
-typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
-
-#include "geometry_msgs/PoseWithCovarianceStamped.h"
-
 #include <sstream>
 #include <iostream>
 #include <string> 
-using namespace std;
 
-#include <nav_msgs/Odometry.h>
-#include <std_msgs/Float64.h>
 #include <std_msgs/Int16.h>
-#include <std_msgs/Bool.h>
+#include "geometry_msgs/PoseWithCovarianceStamped.h"
 #include <std_msgs/String.h>
+#include <robot_msgs/Motor.h>
+
+using namespace std;
+typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 std_msgs::Int16 pushed_msg;
+robot_msgs::Motor motor_msgs;
+
 ros::Publisher pub_zing;
 ros::Publisher pub_cmd_vel;
-// ---
-void go_waypoint(double wayPoint[]);
-void zing_function(int num);
 
-//cb 함수들 ----------------------------------------------------------------------------------------------
+ros::Subscriber sub_state;
+ros::Subscriber sub_arduino_swich;
+ros::Subscriber sub_amcl_pose;
+ros::Subscriber sub_waypoint;
+ros::Subscriber sub_set_waypoint;
+ros::Subscriber sub_teleop_key;
+
+//navi function
+
+
+void go_waypoint(double wayPoint[]);
+void sub_MP_state_callback(const std_msgs::String::ConstPtr& msgs);
+void sub_swich_callback(const std_msgs::Int16::ConstPtr& msgs);
+void sub_amcl_pose_callback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msgAMCL);
+void sub_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs);
+void sub_set_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs);
+void sub_teleopkey_callback(const std_msgs::Int16::ConstPtr& msgs);
+//변수  ----------------------------------------------------------------------------------------------
 
 double waypoint[5][3] = {{0, 0, 1},
                             {-3, 5, 1},
@@ -41,11 +53,14 @@ int count_3=0;
 int MP_start_but = 0;
 
 bool robot_is_working = false;
+double poseAMCL[3];
 
 
-void sub_MP_state_callback(const std_msgs::String::ConstPtr& msg){
+//cb 함수들 ----------------------------------------------------------------------------------------------
 
-  string MP_state = msg->data.c_str();
+void sub_MP_state_callback(const std_msgs::String::ConstPtr& msgs){
+
+  string MP_state = msgs->data.c_str();
   string state_1 = "hungry";
   string state_2 = "tirsty";
   string state_3 = "toilet";
@@ -56,7 +71,7 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msg){
     pushed_msg.data = true;
     pub_zing.publish(pushed_msg);
 
-    if(state_1 == msg->data.c_str()){
+    if(state_1 == msgs->data.c_str()){
       count_1 += 1;
       count_2 = 0;
       count_3 = 0;
@@ -71,7 +86,7 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msg){
       }
     }
 
-    if(state_2 == msg->data.c_str()){
+    if(state_2 == msgs->data.c_str()){
       count_1 = 0;
       count_2 += 1;
       count_3 = 0;
@@ -87,7 +102,7 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msg){
       }
     }
 
-    if(state_3 == msg->data.c_str()){
+    if(state_3 == msgs->data.c_str()){
       count_1 = 0;
       count_2 = 0;
       count_3 += 1;
@@ -114,9 +129,6 @@ void sub_swich_callback(const std_msgs::Int16::ConstPtr& msgs){
 }
 
 
-
-double poseAMCL[3];
-
 void sub_amcl_pose_callback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msgAMCL){
     poseAMCL[0] = msgAMCL->pose.pose.position.x;
     poseAMCL[1] = msgAMCL->pose.pose.position.y;
@@ -125,7 +137,7 @@ void sub_amcl_pose_callback(const geometry_msgs::PoseWithCovarianceStamped::Cons
 }
 
 
-int wayPoint_state =0;
+
 void sub_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs){
   if(msgs->data){
     ROS_INFO("go to waypoint %d", msgs->data-1);
@@ -135,6 +147,7 @@ void sub_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs){
 
 
 void sub_set_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs){
+
   int waypoint_num = msgs->data;
   if(waypoint_num){
     for(int i = 0; i < 3; i++){
@@ -145,8 +158,44 @@ void sub_set_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs){
 }
 
 void sub_teleopkey_callback(const std_msgs::Int16::ConstPtr& msgs){
- int  msgs->data 
+
+   int  telep_state = msgs->data;
+   if(telep_state){
+      if(telep_state == 1){ // go 
+        motor_msgs.right_motor.data = 20;
+        motor_msgs.left_motor.data = 20;
+        pub_cmd_vel.publish(motor_msgs);
+        ROS_INFO("gogogogogo");
+      }
+        if(telep_state == 2){ // back 
+        motor_msgs.right_motor.data = 0;
+        motor_msgs.left_motor.data = 0;
+        pub_cmd_vel.publish(motor_msgs);
+        ROS_INFO("stop");      
+      }
+
+        if(telep_state == 3){ // left 
+        motor_msgs.right_motor.data = 20;
+        motor_msgs.left_motor.data = -20;
+        pub_cmd_vel.publish(motor_msgs);
+        ROS_INFO("left");
+      }
+
+      if(telep_state == 4){ // right 
+        motor_msgs.right_motor.data = -20;
+        motor_msgs.left_motor.data = 20;
+        pub_cmd_vel.publish(motor_msgs);
+        ROS_INFO("right");
+      }
+      if(telep_state == 5){ // right 
+        motor_msgs.right_motor.data = -20;
+        motor_msgs.left_motor.data = -20;
+        pub_cmd_vel.publish(motor_msgs);
+        ROS_INFO("back");
+      }
+    }
 }
+
 
 
  //실 사용 함수들 -----------------------------------------------------------------------------------------
@@ -219,7 +268,7 @@ void go_waypoint(double target_wayPoint[]){
     
 }
 
-
+//------------------------------------------------------------------------------------------------------
 
 
 
@@ -230,16 +279,16 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;                                   
 
   pub_zing = nh.advertise<std_msgs::Int16>("/MR_2/arduino/zing",10 );
-  
+  pub_cmd_vel = nh.advertise<robot_msgs::Motor>("/MR_2/speed_set",1);
 
 
-  ros::Subscriber sub_state  = nh.subscribe("/MR_2/MP_state", 10, sub_MP_state_callback); 
-  ros::Subscriber sub_arduino_swich  = nh.subscribe("/MR_2/arduino/swich", 10, sub_swich_callback); 
-  ros::Subscriber sub_amcl_pose = nh.subscribe("/amcl_pose", 10, sub_amcl_pose_callback);
+  sub_state  = nh.subscribe("/MR_2/MP_state", 10, sub_MP_state_callback); 
+  sub_arduino_swich  = nh.subscribe("/MR_2/arduino/swich", 10, sub_swich_callback); 
+  sub_amcl_pose = nh.subscribe("/amcl_pose", 10, sub_amcl_pose_callback);
 
-  ros::Subscriber sub_waypoint = nh.subscribe("/MR_2/waypoint", 10, sub_waypoint_callback);
-  ros::Subscriber sub_set_waypoint = nh.subscribe("/MR_2/set_waypoint", 10, sub_set_waypoint_callback);
-  ros::Subscriber sub_teleop_key = nh.subscribe("/MR_2/teleopkey", 10, sub_teleopkey_callback);
+  sub_waypoint = nh.subscribe("/MR_2/waypoint", 10, sub_waypoint_callback);
+  sub_set_waypoint = nh.subscribe("/MR_2/set_waypoint", 10, sub_set_waypoint_callback);
+  sub_teleop_key = nh.subscribe("/MR_2/teleopkey", 10, sub_teleopkey_callback);
 
   while (ros::ok())
   {

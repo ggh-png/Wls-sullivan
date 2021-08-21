@@ -58,6 +58,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    waypoint.msg
+   Motor.msg
 #   Message2.msg
  )
 
@@ -129,6 +130,9 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+include_directories(
+    include/MR_2_core
+    )
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/MR_2_core.cpp
