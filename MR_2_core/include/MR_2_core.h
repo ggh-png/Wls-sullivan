@@ -17,9 +17,13 @@ typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseCl
 
 std_msgs::Int16 pushed_msg;
 robot_msgs::Motor motor_msgs;
+std_msgs::Int16 TP_msg;
+
 
 ros::Publisher pub_zing;
 ros::Publisher pub_cmd_vel;
+ros::Publisher pub_TP_state;
+
 
 ros::Subscriber sub_state;
 ros::Subscriber sub_arduino_swich;

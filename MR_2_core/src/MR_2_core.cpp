@@ -23,6 +23,8 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msgs){
       ROS_INFO("stat_1 stack %d", count_1);
       if(count_1 == 3){
         ROS_INFO("go waypoint_1");
+        TP_msg.data = 1;
+        pub_TP_state.publish(TP_msg);
         go_waypoint(waypoint[0]);
         count_1 = 0;
         count_2 = 0;
@@ -39,6 +41,8 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msgs){
       if(count_2 == 3){
         ROS_INFO("go waypoint_1");
         // pushed_msg;
+        TP_msg.data = 2;
+        pub_TP_state.publish(TP_msg);
         go_waypoint(waypoint[1]);
         count_1 = 0;
         count_2 = 0;
@@ -55,6 +59,8 @@ void sub_MP_state_callback(const std_msgs::String::ConstPtr& msgs){
       if(count_3 == 3){
         ROS_INFO("go waypoint_1");
         // pushed_msg;
+        TP_msg.data = 3;
+        pub_TP_state.publish(TP_msg);
         go_waypoint(waypoint[2]);
         count_1 = 0;
         count_2 = 0;
@@ -86,6 +92,8 @@ void sub_amcl_pose_callback(const geometry_msgs::PoseWithCovarianceStamped::Cons
 void sub_waypoint_callback(const std_msgs::Int16::ConstPtr& msgs){
   if(msgs->data){
     ROS_INFO("go to waypoint %d", msgs->data-1);
+    TP_msg.data = msgs->data;
+    pub_TP_state.publish(TP_msg);
     go_waypoint(waypoint[msgs->data-1]);  
   }
 }
@@ -225,7 +233,7 @@ int main(int argc, char **argv)
 
   pub_zing = nh.advertise<std_msgs::Int16>("/MR_2/arduino/zing",10 );
   pub_cmd_vel = nh.advertise<robot_msgs::Motor>("/MR_2/speed_set",1);
-
+  pub_TP_state = nh.advertise<std_msgs::Int16>("/MR_2/TP_state",1);
 
   sub_state  = nh.subscribe("/MR_2/MP_state", 10, sub_MP_state_callback); 
   sub_arduino_swich  = nh.subscribe("/MR_2/arduino/swich", 10, sub_swich_callback); 
