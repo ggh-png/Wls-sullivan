@@ -108,7 +108,7 @@ void sub_teleopkey_callback(const std_msgs::Int16::ConstPtr& msgs){
    if(telep_state){
       if(telep_state == 1){ // go 
         motor_msgs.right_motor.data = 20;
-        motor_msgs.left_motor.data = 20;
+        motor_msgs.left_motor.data = -20;
         pub_cmd_vel.publish(motor_msgs);
         ROS_INFO("gogogogogo");
       }
@@ -120,21 +120,21 @@ void sub_teleopkey_callback(const std_msgs::Int16::ConstPtr& msgs){
       }
 
         if(telep_state == 3){ // left 
-        motor_msgs.right_motor.data = 20;
-        motor_msgs.left_motor.data = -20;
+        motor_msgs.right_motor.data = 10;
+        motor_msgs.left_motor.data = 10;
         pub_cmd_vel.publish(motor_msgs);
         ROS_INFO("left");
       }
 
       if(telep_state == 4){ // right 
-        motor_msgs.right_motor.data = -20;
-        motor_msgs.left_motor.data = 20;
+        motor_msgs.right_motor.data = -10;
+        motor_msgs.left_motor.data = -10;
         pub_cmd_vel.publish(motor_msgs);
         ROS_INFO("right");
       }
       if(telep_state == 5){ // right 
         motor_msgs.right_motor.data = -20;
-        motor_msgs.left_motor.data = -20;
+        motor_msgs.left_motor.data = 20;
         pub_cmd_vel.publish(motor_msgs);
         ROS_INFO("back");
       }

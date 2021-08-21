@@ -5,7 +5,7 @@
 
 
 
-  <node pkg="ros_MP" type="RockPaperScissorsClass.py" name="RockPaperScissorsClass"  output="screen">
+  <node pkg="MR_2_MP" type="MP_state.py" name="MP_state"  output="screen">
   </node>
 
 
