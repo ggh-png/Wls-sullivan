@@ -1,0 +1,10 @@
+<launch>
+    <arg name="Normal" value="0"/>
+    <arg name="Full"  value="1"/>
+    <arg name="Max"   value="2"/>
+    <arg name="Min"   value="3"/>
+
+    <node pkg="wls_mr_ui" name="wls_mr_ui_node" type="wls_mr_ui_node" output="screen">
+        <param name="mainwindow_type" type="int" value="$(arg Min)"/>
+    </node>
+</launch>
