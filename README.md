@@ -20,7 +20,9 @@ git clone https://github.com/ggh-png/MR_2.git
 ```
 cd ~/catkin_ws/src/MR_2
 ./essential_package_install.sh
+source ~/.bashrc
 ```
+
 ## rebuild all
 ---
 ```
