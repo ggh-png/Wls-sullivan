@@ -63,20 +63,30 @@ cd ~/catkin_ws/src/MR_2
 cd ~/catkin_ws/src/MR_2
 ./build_all.sh
 ```
-## launch ui full size
+# launch server
+```
+roscore
+roslaunch MR_2_core MR_2_core.launch
+```
 ---
+# launch TP
+
+## launch ui full size
 ```
 cd ~/catkin_ws/src/MR_2
 ./launch_ui.sh
 ```
 ## launch ui max size
----
+
 ```
 cd ~/catkin_ws/src/MR_2
 ./launch_ui_size_max.sh
 ```
-
-
+---
+# launch robot 
+```
+roslaunch slam bringup
+```
 
 ---
 ## warning
