@@ -8,7 +8,19 @@
 ##### 
 
 <p alingn="center">
-	<img src="https://user-images.githubusercontent.com/71277820/132126429-198f9076-f7c1-4cf9-9488-e001f2586238.png" width="250">
+	<img src="https://user-images.githubusercontent.com/71277820/132127510-eb51b64b-3865-42ed-8802-37542fd9a69f.PNG" width="250">
+</p>
+
+## Introduce
+
+```
+위 로봇은 시각, 청각능력 없이 오직 촉각만을 느낄 수 있는 시청각 장애인들을 위해 만들어 졌으며, 로봇이 사용자의 특정한 손짓을 인식하여 사용자를 특정 장소까지 안전하게 인도하는 로봇이다. 
+```
+## Workflow 
+
+<p alingn="center">
+	<img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG" width="375">
+	<img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG" width="375">
 </p>
 
 
