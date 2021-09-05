@@ -8,7 +8,7 @@
 ##### 
 
 <p alingn="center">
-	<img src="https://user-images.githubusercontent.com/71277820/132127510-eb51b64b-3865-42ed-8802-37542fd9a69f.PNG" width="250">
+	<img src="https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG" width="250">
 </p>
 
 ## Introduce
@@ -21,6 +21,23 @@
 <p alingn="center">
 	<img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG" width="375">
 	<img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG" width="375">
+</p>
+
+---
+
+## Hardware Archtecture
+
+<p alingn="center">
+	<img src="https://user-images.githubusercontent.com/71277820/132128358-23749e3b-8d92-4108-be60-119304e13721.PNG" width="375">
+	<img src="https://user-images.githubusercontent.com/71277820/132128397-723496ec-fcd5-4846-ba6e-03a867e46f2c.jpg" width="375">
+</p>
+
+
+
+## Software Archtecture
+
+<p alingn="center">
+	<img src="https://user-images.githubusercontent.com/71277820/132126963-a191c637-880c-49a0-a296-d6442114507c.png" width="375">
 </p>
 
 
