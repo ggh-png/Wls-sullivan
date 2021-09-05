@@ -19,8 +19,8 @@
 ## Workflow 
 
 <p alingn="center">
-	<img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG">
-	<img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG">
+	<img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG" width="375">
+	<img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG" width="375">
 </p>
 
 ---
@@ -28,8 +28,7 @@
 ## Hardware Archtecture
 
 <p alingn="center">
-	<img src="https://user-images.githubusercontent.com/71277820/132128358-23749e3b-8d92-4108-be60-119304e13721.PNG" width="375">
-	<img src="https://user-images.githubusercontent.com/71277820/132128397-723496ec-fcd5-4846-ba6e-03a867e46f2c.jpg" width="375">
+	<img src="https://user-images.githubusercontent.com/71277820/132128358-23749e3b-8d92-4108-be60-119304e13721.PNG">
 </p>
 
 
