@@ -1,14 +1,15 @@
-# MR_2
-
+# Project Team : Wls sisullivan
+---
 
 ## Demo
 ---
 
 ##### reserved
-##### Not yet
+##### 
 
+<p alingn="center">
+	<img src="https://user-images.githubusercontent.com/71277820/132126449-324e1453-54f6-4d82-a08f-99cd5f3ebc92.png">
 
-![initial](https://user-images.githubusercontent.com/71277820/132126449-324e1453-54f6-4d82-a08f-99cd5f3ebc92.png)
 
 ## Install
 ---
