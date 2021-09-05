@@ -1,11 +1,4 @@
 # Project Team : Wls sisullivan
----
-
-## Demo
----
-
-##### reserved
-##### 
 
 <p alingn="center">
 	<img src="https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG">
@@ -23,7 +16,7 @@
 	<img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG" width="375">
 </p>
 
----
+
 
 ## Hardware Archtecture
 
@@ -36,7 +29,7 @@
 ## Software Archtecture
 
 <p alingn="center">
-	<img src="https://user-images.githubusercontent.com/71277820/132126963-a191c637-880c-49a0-a296-d6442114507c.png" width="375">
+	<img src="https://user-images.githubusercontent.com/71277820/132128803-9cf4da9d-1bc5-4ff7-a755-14320d0988df.png">
 </p>
 
 
