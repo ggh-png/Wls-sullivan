@@ -85,6 +85,7 @@ cd ~/catkin_ws/src/MR_2
 ---
 # launch robot 
 ```
+source ~/catkin_ws/devel/setup.bash
 roslaunch slam bringup.launch
 ```
 
