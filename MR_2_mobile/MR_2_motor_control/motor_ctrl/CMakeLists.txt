@@ -19,15 +19,12 @@ find_package(catkin REQUIRED COMPONENTS
 
 
 catkin_package(
-  INCLUDE_DIRS include
   LIBRARIES motor_node robot_msgs
   CATKIN_DEPENDS roscpp std_msgs 
   DEPENDS system_lib
 )
 
 include_directories(
-  include
-  include/odometry
   ${catkin_INCLUDE_DIRS}
 )
 

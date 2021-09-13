@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>wls_mr_ui</name>
+  <name>MR_2_UI</name>
   <version>0.1.0</version>
-  <description>The wls_mr_ui package</description>
+  <description>The MR_2_UI package</description>
   <maintainer email="jwt@todo.todo">jwt</maintainer>
 
   <license>Apache 2.0</license>

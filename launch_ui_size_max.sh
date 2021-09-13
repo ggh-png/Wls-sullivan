@@ -1,2 +1,2 @@
 source ~/catkin_ws/devel/setup.bash
-roslaunch wls_mr_ui wls_mr_max.launch
+roslaunch MR_2_UI MR_2_UI_max.launch
