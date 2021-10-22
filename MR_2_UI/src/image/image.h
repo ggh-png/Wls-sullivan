@@ -6,7 +6,7 @@
 #include <QPushButton>
 #include <QSize>
 
-#define IMAGE_DIR       "/../../../src/MR_2/MR_2_UI/Image/"
+#define IMAGE_DIR       "/../../../src/2021ESWContest_free_1126/MR_2_UI/Image/"
 
 QPixmap LoadPicture(QString ImagefileName);
 
