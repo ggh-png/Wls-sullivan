@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.0)
 project(MR_2_UI)
 
+add_compile_options(-std=c++11)
+
 set(CMAKE_AUTOUIC ON)
 
 find_package(catkin REQUIRED COMPONENTS
