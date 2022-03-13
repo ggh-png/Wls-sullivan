@@ -95,6 +95,6 @@ roslaunch slam bringup.launch
 ---
 ## warning
 
-이 package는 ubuntu 18.04 ros melodic 환경에서 동작합니다. 
+해당 package는 ubuntu 18.04 ros melodic 환경에서 동작합니다. 
 (그외의 환경에서는 작동하지 않습니다.)
  
