@@ -14,9 +14,7 @@
 [![demo_link](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)](https://youtu.be/FCpgLseV2Cw)
 
 ## Workflow 
-<p alingn="center">
-	<img src="https://user-images.githubusercontent.com/71277820/132130990-18d2a052-bd92-4690-a8eb-df637200408c.PNG">
-</p>
+
 <p alingn="center">
 	<img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG" width="375">
 	<img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG" width="375">
