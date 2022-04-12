@@ -34,7 +34,6 @@
 
 ## Hardware Archtecture
 
----
 
 ![https://user-images.githubusercontent.com/71277820/132128891-1c86db73-4cc6-4690-b971-a1122bcf12d5.PNG](https://user-images.githubusercontent.com/71277820/132128891-1c86db73-4cc6-4690-b971-a1122bcf12d5.PNG)
 
