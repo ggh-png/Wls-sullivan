@@ -1,8 +1,9 @@
 []()
 
 # Project Team : Wls sisullivan
-
+<p align="center">
 ![https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG](https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG)
+</p>
 
 ## Introduce
 
