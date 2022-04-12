@@ -3,7 +3,7 @@
 # Project Team : Wls sisullivan
 
 <p align="center">
-  <img width="600" height="200" src="https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG">
+  <img width="600" height="300" src="https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG">
 </p>
 
 
