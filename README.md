@@ -16,9 +16,10 @@
 [![Video Label](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)](https://www.youtube.com/watch?v=FCpgLseV2Cw)
 
 ## Workflow
-
-> **Nomal mode**
-> 
+<p align="center">
+  > **Nomal mode**
+  > 
+</p>
 
 <p align="center">
   <img width="1000" height="600" src="https://user-images.githubusercontent.com/71277820/163652354-a470be97-49c0-463b-8ef9-87be65297443.png">
@@ -28,8 +29,10 @@
   <img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG">
 </p>
 
-> **Emergency mode**
-> 
+<p align="center">
+  > **Emergency mode**
+  > 
+</p>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71277820/132127679-26793a11-db7d-486e-ba1f-610323179d84.PNG">
