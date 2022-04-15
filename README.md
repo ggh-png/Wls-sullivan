@@ -16,9 +16,12 @@
 [![Video Label](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)](https://www.youtube.com/watch?v=FCpgLseV2Cw)
 
 ## Workflow
+
 <p align="center">
+  
   > **Nomal mode**
-  > 
+  >
+  
 </p>
 
 <p align="center">
@@ -30,8 +33,10 @@
 </p>
 
 <p align="center">
+  
   > **Emergency mode**
   > 
+  
 </p>
 
 <p align="center">
