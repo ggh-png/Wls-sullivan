@@ -31,8 +31,7 @@
 </p>
 
 <p align="center">
-  
-  Emergency mode
+   Emergency mode
   
   
 </p>
