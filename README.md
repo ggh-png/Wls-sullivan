@@ -18,8 +18,8 @@
 ## Workflow
 
 <p align="center">
-  > **Nomal mode**
-  >
+  Nomal mode
+  
 </p>
 
 <p align="center">
@@ -32,8 +32,8 @@
 
 <p align="center">
   
-  > **Emergency mode**
-  > 
+  Emergency mode
+  
   
 </p>
 
