@@ -20,11 +20,11 @@
 > **Nomal mode**
 > 
 
-<img src="https://user-images.githubusercontent.com/71277820/163652142-a7f7531a-ce6f-4f8d-af1d-d7b3a7154d47.png">
+<img width="900" height="450" src="https://user-images.githubusercontent.com/71277820/163652142-a7f7531a-ce6f-4f8d-af1d-d7b3a7154d47.png">
 
 
 <p align="center">
-  <img width="900" height="450" src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG">
+  <img src="https://user-images.githubusercontent.com/71277820/132127678-ddb22169-bbcf-41c4-a4d3-b42b810b9990.PNG">
 </p>
 
 > **Emergency mode**
