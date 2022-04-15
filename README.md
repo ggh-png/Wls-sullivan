@@ -18,10 +18,8 @@
 ## Workflow
 
 <p align="center">
-  
   > **Nomal mode**
   >
-  
 </p>
 
 <p align="center">
