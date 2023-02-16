@@ -1,8 +1,8 @@
-# **Wls-sisullivan**
+# **Wls-sullivan**
 
 ![Image Label](https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG)
 
-Wls-sisullivan is a robot designed for visually impaired people who can only feel through touch. The robot recognizes the user's hand movements and delivers information to the user through a vibration pad. The robot is designed to safely guide the user to a specific location.
+Wls-sullivan is a robot designed for visually impaired people who can only feel through touch. The robot recognizes the user's hand movements and delivers information to the user through a vibration pad. The robot is designed to safely guide the user to a specific location.
 
 ## **Demo**
 
