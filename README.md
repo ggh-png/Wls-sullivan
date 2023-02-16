@@ -4,7 +4,8 @@ Wls-sisullivan is a robot designed for visually impaired people who can only fee
 
 ## **Demo**
 
-![https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)
+[![Video Label](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)](https://youtu.be/FCpgLseV2Cw)
+
 
 ## **Workflow**
 
