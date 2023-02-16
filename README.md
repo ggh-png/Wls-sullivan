@@ -26,8 +26,6 @@ Wls-sisullivan is a robot designed for visually impaired people who can only fee
 
 ## **Installation**
 
----
-
 ### Clone the repository:
 
 ```bash
@@ -52,16 +50,12 @@ cd ~/catkin_ws/src/MR_2
 
 ## launch server
 
----
-
 ```bash
 roscore
 roslaunch MR_2_core MR_2_core.launch
 ```
 
 ## launch TP
-
----
 
 ### launch ui full size
 
