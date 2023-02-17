@@ -1,13 +1,16 @@
 # **Wls-sullivan**
 
 
-![ezgif.com-gif-maker.gif](ezgif.com-video-to-gif.gif)
-
 ![Image Label](https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG)
 
 Wls-sullivan is a robot designed for visually impaired people who can only feel through touch. The robot recognizes the user's hand movements and delivers information to the user through a vibration pad. The robot is designed to safely guide the user to a specific location.
 
 ## **Demo**
+
+![ezgif.com-gif-maker.gif](ezgif.com-video-to-gif.gif)
+
+
+## **YouTube**
 
 [![Video Label](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)](https://youtu.be/FCpgLseV2Cw)
 
