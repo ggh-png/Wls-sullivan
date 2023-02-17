@@ -14,6 +14,7 @@ Wls-sullivan is a robot designed for visually impaired people who can only feel 
 
 [![Video Label](https://user-images.githubusercontent.com/71277820/161438131-49853121-f4f7-4918-919d-9333d6604514.png)](https://youtu.be/FCpgLseV2Cw)
 
+( When you click on the image above, you can see the demo link. )
 
 ## **Workflow**
 
