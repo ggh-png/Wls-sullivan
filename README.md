@@ -1,5 +1,20 @@
 # **Wls-sullivan**
 
+## Membor
+
+[윤우성(Woosung Yun )](https://github.com/ggh-png), [김건우(**Gun-woo Kim**)](https://github.com/kimku-0112), [유창민(**Changmin Yoo**)](https://github.com/qprkquf)
+
+Robot sw 
+
+[윤우성(Woosung Yun )](https://github.com/ggh-png)
+
+Robot hw
+
+[유창민(**Changmin Yoo**)](https://github.com/qprkquf)
+
+robot ui
+
+[김건우(**Gun-woo Kim**)](https://github.com/kimku-0112)
 
 ![Image Label](https://user-images.githubusercontent.com/71277820/132127880-b20c1869-dfa0-4aea-ad04-9a5fe2b14d9d.PNG)
 
